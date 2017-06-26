@@ -1,0 +1,22 @@
+Resultado de Validacion de Envio de Consumo de Folios
+=====================================================
+Identificador de Envio      : 52680618
+Rut de Empresa Emisora      : 10975455-2
+Rut que Realizo el Envio    : 10975455-2
+Fecha de Recepcion          : 2017-06-25T22:11:57
+Tamano del archivo          : 4256
+Tipo de Envio               : Manual
+Informacion acerca de Resumen
+=============================
+
+Fecha Primer dia del resumen: 2017-06-25
+Fecha ultimo dia del resumen: 2017-06-25
+Secuencia de envio          : 1
+Fecha firma                 : 2017-06-25 22:09:48.0
+
+
+Resultado de envio           
+=============================
+Estado del envio            : CORRECTO
+Errores                     : 0
+Reparos                     : 0
