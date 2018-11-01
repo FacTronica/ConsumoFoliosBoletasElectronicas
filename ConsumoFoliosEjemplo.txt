@@ -9,6 +9,8 @@ $FACTRONICA["FILETXTPLANO"]="consumofolios_archivoplano.txt";
 $FACTRONICA["BUZONSERVIDOR"]="buzon_consumofolios";
 $FACTRONICA["DOCUMENTOPORFIRMAR"]="miconsumoporfirmar.xml";
 $FACTRONICA["DOCUMENTOFIRMADO"]="CONSUMOFOLIOS_FECHA24032017_RUT109754552_ENVIO.xml";
+$FACTRONICA["SWENVIARSII"]="0"; // 1=si 0=no ( enviar al sii el xml consumo folios )
+$FACTRONICA["SWENVIARMAIL"]="0"; // 1=si 0=no  ( enviar mail con consumo folios )
 # 
 # DATOS DE CARATULA
 $Caratula["RutEmisor"]="10975455-2";
