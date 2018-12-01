@@ -2,21 +2,25 @@
 #
 # DATOS DE CONFIGURACION
 $FACTRONICA["TOKEN"]="JK7HD53D";
-$FACTRONICA["URLSERVIDOR"]="http://www.factronica.cl/servidores/servidor_v727";
+$FACTRONICA["URLSERVIDOR"]="http://190.107.177.113/~apifactronica/factronica_consumofolios_servidor";
 $FACTRONICA["SCRIPTSERVIDOR"]="recibe_txt_consumofolios.php";
 $FACTRONICA["DIRTXTPLANO"]="txt";
 $FACTRONICA["FILETXTPLANO"]="consumofolios_archivoplano.txt";
-$FACTRONICA["BUZONSERVIDOR"]="buzon_consumofolios";
+$FACTRONICA["BUZONSERVIDOR"]="../home/777777777";
 $FACTRONICA["DOCUMENTOPORFIRMAR"]="miconsumoporfirmar.xml";
 $FACTRONICA["DOCUMENTOFIRMADO"]="CONSUMOFOLIOS_FECHA24032017_RUT109754552_ENVIO.xml";
 $FACTRONICA["SWENVIARSII"]="0"; // 1=si 0=no ( enviar al sii el xml consumo folios )
 $FACTRONICA["SWENVIARMAIL"]="0"; // 1=si 0=no  ( enviar mail con consumo folios )
 $FACTRONICA["TRACKID"]="CONSUMOFOLIOS_FECHA24032017_RUT109754552_TRACKID.xml";
 $FACTRONICA["MAIL_DESTINATARIO"]="correo@respaldo.com"; // Correo de respaldo
+$FACTRONICA["RUTENVIA"]="11111111"; // Rep.Legal
+$FACTRONICA["DVENVIA"]="1"; // Rep.Legal
+$FACTRONICA["RUTPYME"]="77777777"; // Empresa (Contribuyente)
+$FACTRONICA["DVPYME"]="7"; // Empresa (Contribuyente)
 # 
 # DATOS DE CARATULA
-$Caratula["RutEmisor"]="10975455-2";
-$Caratula["RutEnvia"]="10975455-2";
+$Caratula["RutEmisor"]="77777777-7"; // Empresa (Contribuyente)
+$Caratula["RutEnvia"]="11111111-1";  // Rep.Legal
 $Caratula["FchResol"]="2017-01-18";
 $Caratula["NroResol"]="80";
 $Caratula["FchInicio"]="2017-03-24";
