@@ -30,10 +30,10 @@ Este proceso Consiste en generar un archivo de texto plano con el formato requer
 Este proceso es necesario para poder validar que el SII Chile haya recibido el documento emitido.
 <br>
 <br><b>Recuperar Archivo Xml desde Linux:</b>
-<br>curl -o CONSUMOFOLIOS_FECHA31122018_RUT111111111_TRACKID.xml https://190.107.177.113/~apifactronica/factronica_consumofolios_servidor/buzon_consumofolios/CONSUMOFOLIOS_FECHA31122018_RUT760692123_TRACKID.xml
+<br>curl -o CONSUMOFOLIOS_FECHA31122018_RUT111111111_TRACKID.xml https://190.107.177.113/~apifactronica/factronica_consumofolios_servidor/buzon_consumofolios/CONSUMOFOLIOS_FECHA31122018_RUT111111111_TRACKID.xml
 <br>
 <br><b>Recuperar archivo xml desde Windows:</b>
-<br>c:\curl\curl.exe -o c:\curl\CONSUMOFOLIOS_FECHA31122018_RUT111111111_TRACKID.xml https://190.107.177.113/~apifactronica/factronica_consumofolios_servidor/buzon_consumofolios/CONSUMOFOLIOS_FECHA31122018_RUT760692123_TRACKID.xml
+<br>c:\curl\curl.exe -o c:\curl\CONSUMOFOLIOS_FECHA31122018_RUT111111111_TRACKID.xml https://190.107.177.113/~apifactronica/factronica_consumofolios_servidor/buzon_consumofolios/CONSUMOFOLIOS_FECHA31122018_RUT111111111_TRACKID.xml
 <hr>
 <h3>Proceso 4: Recuperar el XML Consumo de Folios:</h3>
 Este proceso es necesario para poder obtener una copia del xml del archivo Consumo de folios.
