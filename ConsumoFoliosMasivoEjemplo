@@ -1,0 +1,106 @@
+<?php 
+#
+# DATOS DE CONFIGURACION
+$FACTRONICA["TOKEN"]="JK7HD53D";
+$FACTRONICA["URLSERVIDOR"]="http://190.107.177.113/~apifactronica/factronica_consumofolios_servidor";
+$FACTRONICA["SCRIPTSERVIDOR"]="recibe_txt_consumofolios.php";
+$FACTRONICA["DIRTXTPLANO"]="txt";
+$FACTRONICA["FILETXTPLANO"]="consumofolios_archivoplano.txt";
+$FACTRONICA["BUZONSERVIDOR"]="../home/777777777";
+#
+# NOMBRE DE LOS ARCHIVOS DE SALIDA
+$FACTRONICA["DOCUMENTOPORFIRMAR"]="miconsumoporfirmar.xml";
+$FACTRONICA["DOCUMENTOFIRMADO"]="CONSUMOFOLIOS_FECHA24032017_RUT109754552_ENVIO.xml";
+$FACTRONICA["TRACKID"]="CONSUMOFOLIOS_FECHA24032017_RUT109754552_TRACKID.xml";
+#
+# SWITCHS DE ENVIO
+$FACTRONICA["SWENVIARSII"]="0"; // 1=si 0=no ( enviar al sii el xml consumo folios )
+$FACTRONICA["SWENVIARMAIL"]="0"; // 1=si 0=no  ( enviar mail con consumo folios )
+#
+# CORREO DE RESPALDO
+$FACTRONICA["MAIL_DESTINATARIO"]="correo@respaldo.com";
+#
+# RUT CONTRIBUYENTE Y REP LEGAL
+$FACTRONICA["RUTENVIA"]="11111111"; // Rep.Legal
+$FACTRONICA["DVENVIA"]="1"; // Rep.Legal
+$FACTRONICA["RUTPYME"]="77777777"; // Empresa (Contribuyente)
+$FACTRONICA["DVPYME"]="7"; // Empresa (Contribuyente)
+# 
+# DATOS DE CARATULA
+$Caratula["RutEmisor"]="77777777-7"; // Empresa (Contribuyente)
+$Caratula["RutEnvia"]="11111111-1";  // Rep.Legal
+$Caratula["FchResol"]="2017-01-18";
+$Caratula["NroResol"]="80";
+$Caratula["FchInicio"]="2017-03-24";
+$Caratula["FchFinal"]="2017-03-24";
+$Caratula["Correlativo"]="";
+$Caratula["SecEnvio"]="1";
+#
+# DATOS DE RESUMEN BOLETA ELECTRONICA
+$Resumen["TipoDocumento"]["39"]="39";
+$Resumen["MntNeto"]["39"]="100000";
+$Resumen["MntIva"]["39"]="19000";
+$Resumen["TasaIVA"]["39"]="19";
+$Resumen["MntExento"]["39"]="0";
+$Resumen["MntTotal"]["39"]="119000";
+$Resumen["FoliosEmitidos"]["39"]="111";    // SE INCLUYE SOLO LOS VIGENTES
+$Resumen["FoliosAnulados"]["39"]="14";    // TOTAL DE FOLIOS ANULADOS
+$Resumen["FoliosUtilizados"]["39"]="125";  // SE INCLUYEN EMITIDOS Y ANULADOS
+#
+# RESUMEN DE SUCURSAL 1 (CON 1 FOLIO ANULADO )
+$Resumen["RangoUtilizadosInicial"]["39"]["1"]="1001";  // 20 FOLIOS EMITIDOS
+$Resumen["RangoUtilizadosFinal"]["39"]["1"]="1020";
+$Resumen["RangoAnuladosInicial"]["39"]["1"]["1"]="";
+$Resumen["RangoAnuladosFinal"]["39"]["1"]["1"]="";
+$Resumen["FolioAnulado"]["39"]["1"]="1015";           // 1 FOLIO ANULADO
+#
+# RESUMEN DE SUCURSAL 2 ( CON UN RANGO CORRELATIVO DE FOLIOS ANULADOS )
+$Resumen["RangoUtilizadosInicial"]["39"]["2"]="2001";  // 25 FOLIOS EMITIDOS
+$Resumen["RangoUtilizadosFinal"]["39"]["2"]="2025";
+$Resumen["RangoAnuladosInicial"]["39"]["2"]["1"]="2009"; // 4 FOLIOS NULOS
+$Resumen["RangoAnuladosFinal"]["39"]["2"]["1"]="2012";
+#
+# RESUMEN DE SUCURSAL 3 ( CON DOS RANGOS CORRELATIVOS DE FOLIOS ANULADOS )
+$Resumen["RangoUtilizadosInicial"]["39"]["3"]="4001";   // 80 FOLIOS EMITIDOS
+$Resumen["RangoUtilizadosFinal"]["39"]["3"]="4080";
+$Resumen["RangoAnuladosInicial"]["39"]["3"]["1"]="4003"; // 3 FOLIOS NULOS
+$Resumen["RangoAnuladosFinal"]["39"]["3"]["1"]="4005";
+$Resumen["RangoAnuladosInicial"]["39"]["3"]["2"]="4070"; // 6 FOLIOS NULOS
+$Resumen["RangoAnuladosFinal"]["39"]["3"]["2"]="4075";
+
+# DATOS DE RESUMEN BOLETA EXENTA ELECTRONICA
+$Resumen["TipoDocumento"]["41"]="41";
+$Resumen["MntNeto"]["41"]="";
+$Resumen["MntIva"]["41"]="";
+$Resumen["TasaIVA"]["41"]="";
+$Resumen["MntExento"]["41"]="";
+$Resumen["MntTotal"]["41"]="";
+$Resumen["FoliosEmitidos"]["41"]="0";
+$Resumen["FoliosAnulados"]["41"]="0";
+$Resumen["FoliosUtilizados"]["41"]="0";
+$Resumen["RangoUtilizadosInicial"]["41"]="";
+$Resumen["RangoUtilizadosFinal"]["41"]="";
+$Resumen["RangoAnuladosInicial"]["41"]="";
+$Resumen["RangoAnuladosFinal"]["41"]="";
+
+# DATOS DE RESUMEN NOTA DE CREDITO ELECTRONICA
+$Resumen["TipoDocumento"]["61"]="61";
+$Resumen["MntNeto"]["61"]="";
+$Resumen["MntIva"]["61"]="";
+$Resumen["TasaIVA"]["61"]="";
+$Resumen["MntExento"]["61"]="";
+$Resumen["MntTotal"]["61"]="";
+$Resumen["FoliosEmitidos"]["61"]="0";
+$Resumen["FoliosAnulados"]["61"]="0";
+$Resumen["FoliosUtilizados"]["61"]="0";
+$Resumen["RangoUtilizadosInicial"]["61"]="";
+$Resumen["RangoUtilizadosFinal"]["61"]="";
+$Resumen["RangoAnuladosInicial"]["61"]="";
+$Resumen["RangoAnuladosFinal"]["61"]="";
+#
+# CERTIFICADO
+$FACTRONICA["PrivKey"]="nnn";
+$FACTRONICA["Modulus"]="nnn";
+$FACTRONICA["Exponent"]="nnn";
+$FACTRONICA["X509Certificate"]="nnn";
+?>
