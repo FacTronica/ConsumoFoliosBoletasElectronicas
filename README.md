@@ -4,8 +4,8 @@ SDK Factronica
 <h3>Procesos a Realizar:</h3>
 1.-Generar Archivo Plano TXT Consumo de Folios
 <br>2.-Enviar Archivo Plano TXT al Servidor de Facturación
-<br>3.-Recuperar Archivo XML con TrackID
-<br>4.-Recuperar Archivo XML Consumo de Folios
+<br>3.-Recuperar Archivo XML Consumo de Folios
+<br>4.-Recuperar Archivo XML con TrackID
 <hr>
 <h3>Proceso 1: Generar Archivo TXT con Consumo de Folios</h3>
 Este proceso Consiste en generar un archivo de texto plano con el formato requerido por el sdk de factronica.
