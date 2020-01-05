@@ -7,7 +7,7 @@ SDK Factronica
 <br>3.-Recuperar Archivo XML con TrackID
 <br>4.-Recuperar Archivo XML Consumo de Folios
 <hr>
-<h3>Proceso 1: Generar Archivo Plano Consumo de Folios</h3>
+<h3>Proceso 1: Generar Archivo TXT con Consumo de Folios</h3>
 Este proceso Consiste en generar un archivo de texto plano con el formato requerido por el sdk de factronica.
 <br>-Servidor Facturación
 <br>-Datos de Caratula
@@ -18,7 +18,7 @@ Este proceso Consiste en generar un archivo de texto plano con el formato requer
 <br>Ejemplo: https://github.com/FacTronica/ConsumoFoliosBoletasElectronicas/blob/master/ConsumoFoliosEjemplo.txt
 <br>
 <hr>
-<h3>Proceso 2: Enviar Archivo Txt</h3>
+<h3>Proceso 2: Enviar Archivo TXT Consumo de Folios</h3>
 <b>Enviar archivo desde Consola Linux:</b>
 <br>curl --form "archivotxt=@consumofolios.txt" http://www.factronica.cl/sdk/factronica_consumofolios/recibe_txt_consumofolios.php
 <br>
@@ -26,20 +26,20 @@ Este proceso Consiste en generar un archivo de texto plano con el formato requer
 <br>c:\curl\curl.exe --form "archivotxt=@c:\curl\consumofolios.txt" http://www.factronica.cl/sdk/factronica_consumofolios/recibe_txt_consumofolios.php
 <br>
 <hr>
-<h3>Proceso 4: Recuperar el XML Consumo de Folios:</h3>
+<h3>Proceso 3: Obtener Archivo XML Consumo de Folios:</h3>
 Este proceso es necesario para poder obtener una copia del xml del archivo Consumo de folios.
 <br>
-<br><b>Recuperar archivo Xml desde Linux:</b>
+<br><b>Obtener archivo Xml desde Linux:</b>
 <br>curl -o CONSUMOFOLIOS_FECHA31122018_RUT111111111_ENVIO.xml http://www.factronica.cl/sdk/factronica_consumofolios/buzon_documentos/CONSUMOFOLIOS_FECHA31122018_RUT111111111_ENVIO.xml
 <br>
-<br><b>Recuperar archivo Xml desde Windows:</b>
+<br><b>Obtener archivo Xml desde Windows:</b>
 <br>c:\curl\curl.exe -o c:\curl\CONSUMOFOLIOS_FECHA31122018_RUT111111111_ENVIO.xml http://www.factronica.cl/sdk/factronica_consumofolios/buzon_documentos/CONSUMOFOLIOS_FECHA31122018_RUT111111111_ENVIO.xml
 <hr>
-<h3>Proceso 3: Recuperar el XML con TrackID:</h3>
+<h3>Proceso 4: Obtener Archivo XML TrackID:</h3>
 Este proceso es necesario para poder validar que el SII Chile haya recibido el documento emitido.
 <br>
-<br><b>Recuperar Archivo Xml desde Linux:</b>
+<br><b>Obtener Archivo Xml desde Linux:</b>
 <br>curl -o CONSUMOFOLIOS_FECHA31122018_RUT111111111_TRACKID.xml http://www.factronica.cl/sdk/factronica_consumofolios/buzon_documentos/CONSUMOFOLIOS_FECHA31122018_RUT111111111_TRACKID.xml
 <br>
-<br><b>Recuperar archivo xml desde Windows:</b>
+<br><b>Obtener archivo xml desde Windows:</b>
 <br>c:\curl\curl.exe -o c:\curl\CONSUMOFOLIOS_FECHA31122018_RUT111111111_TRACKID.xml http://www.factronica.cl/sdk/factronica_consumofolios/buzon_documentos/CONSUMOFOLIOS_FECHA31122018_RUT111111111_TRACKID.xml
