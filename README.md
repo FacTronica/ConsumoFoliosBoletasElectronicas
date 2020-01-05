@@ -20,7 +20,7 @@ Este proceso Consiste en generar un archivo de texto plano con el formato requer
 <hr>
 <h3>Proceso 2: Enviar Archivo Txt</h3>
 <b>Enviar archivo desde Consola Linux:</b>
-<br>curl --form "archivotxt=@consumofolios.txt" https://190.107.177.113/~apifactronica/factronica_consumofolios_servidor/recibe_txt_consumofolios.php
+<br>curl --form "archivotxt=@consumofolios.txt" http://www.factronica.cl/sdk/factronica_consumofolios/recibe_txt_consumofolios.php
 <br>
 <br><b>Enviar archivo txt desde Consola Windows:</b>
 <br>c:\curl\curl.exe --form "archivotxt=@c:\curl\consumofolios.txt" https://190.107.177.113/~apifactronica/factronica_consumofolios_servidor/recibe_txt_consumofolios.php
