@@ -62,7 +62,7 @@ Ejemplo de respuesta exitosa:
 }
 ```
 
-## 5. Analizar la respuesta JSON
+## Paso 4. Analizar la respuesta JSON
 
 El integrador debe interpretar estos campos:
 
@@ -75,7 +75,7 @@ El integrador debe interpretar estos campos:
 | `token` | Token obtenido desde el SII. |
 | `trackid` | Identificador entregado por el SII. Si es `0`, no hubo recepcion confirmada. |
 
-## 6. Validaciones recomendadas
+## Validaciones recomendadas
 
 El cliente debe considerar el envio exitoso solo si:
 
@@ -89,7 +89,7 @@ Si `acceso` es `0`, la API key fue rechazada.
 
 Si `estado` es `0`, el consumo no fue confirmado como recibido por el SII y se debe revisar el campo `mensaje`.
 
-## 7. Respuestas de error frecuentes
+## Respuestas de error frecuentes
 
 ### Falta API key
 
