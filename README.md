@@ -1,45 +1,134 @@
-# Consumo de Folios Boletas Electrónicas
-SDK Factronica
-<br>A continuación se detalla el Procedimiento para realizar la integración con Software Propio.
-<h3>Procesos a Realizar:</h3>
-1.-Generar Archivo Plano TXT Consumo de Folios
-<br>2.-Enviar Archivo Plano TXT al Servidor de Facturación
-<br>3.-Recuperar Archivo XML Consumo de Folios
-<br>4.-Recuperar Archivo XML con TrackID
-<hr>
-<h3>Proceso 1: Generar Archivo TXT con Consumo de Folios</h3>
-Este proceso Consiste en generar un archivo de texto plano con el formato requerido por el sdk de factronica.
-<br>-Servidor Facturación
-<br>-Datos de Caratula
-<br>-Datos de Emisor
-<br>-Datos de Resumen
-<br>-Datos de Certificado
-<br>Ver Formato del archivo TXT para Consumo de Folios.
-<br>Ejemplo: https://github.com/FacTronica/ConsumoFoliosBoletasElectronicas/blob/master/ConsumoFoliosEjemplo.txt
-<br>
-<hr>
-<h3>Proceso 2: Enviar Archivo TXT Consumo de Folios</h3>
-<b>Enviar archivo desde Consola Linux:</b>
-<br>curl --form "archivotxt=@consumofolios.txt" http://www.factronica.cl/sdk/factronica_consumofolios/recibe_txt_consumofolios.php
-<br>
-<br><b>Enviar archivo txt desde Consola Windows:</b>
-<br>c:\curl\curl.exe --form "archivotxt=@c:\curl\consumofolios.txt" http://www.factronica.cl/sdk/factronica_consumofolios/recibe_txt_consumofolios.php
-<br>
-<hr>
-<h3>Proceso 3: Obtener Archivo XML Consumo de Folios:</h3>
-Este proceso es necesario para poder obtener una copia del xml del archivo Consumo de folios.
-<br>
-<br><b>Obtener archivo Xml desde Linux:</b>
-<br>curl -o CONSUMOFOLIOS_FECHA31122018_RUT111111111_ENVIO.xml http://www.factronica.cl/sdk/factronica_consumofolios/buzon_documentos/CONSUMOFOLIOS_FECHA31122018_RUT111111111_ENVIO.xml
-<br>
-<br><b>Obtener archivo Xml desde Windows:</b>
-<br>c:\curl\curl.exe -o c:\curl\CONSUMOFOLIOS_FECHA31122018_RUT111111111_ENVIO.xml http://www.factronica.cl/sdk/factronica_consumofolios/buzon_documentos/CONSUMOFOLIOS_FECHA31122018_RUT111111111_ENVIO.xml
-<hr>
-<h3>Proceso 4: Obtener Archivo XML TrackID:</h3>
-Este proceso es necesario para poder validar que el SII Chile haya recibido el documento emitido.
-<br>
-<br><b>Obtener Archivo Xml desde Linux:</b>
-<br>curl -o CONSUMOFOLIOS_FECHA31122018_RUT111111111_TRACKID.xml http://www.factronica.cl/sdk/factronica_consumofolios/buzon_documentos/CONSUMOFOLIOS_FECHA31122018_RUT111111111_TRACKID.xml
-<br>
-<br><b>Obtener archivo xml desde Windows:</b>
-<br>c:\curl\curl.exe -o c:\curl\CONSUMOFOLIOS_FECHA31122018_RUT111111111_TRACKID.xml http://www.factronica.cl/sdk/factronica_consumofolios/buzon_documentos/CONSUMOFOLIOS_FECHA31122018_RUT111111111_TRACKID.xml
+# Guia de integracion cliente
+
+Este documento describe los pasos que debe seguir un integrador externo para enviar un consumo de folios a la API y procesar la respuesta.
+
+## 1. Preparar el archivo TXT
+
+El integrador debe generar un archivo TXT con contenido PHP valido.
+
+Este archivo debe contener:
+
+- Datos de caratula del consumo en `$Caratula`.
+- Resumen de folios por tipo de documento en `$Resumen`.
+- Datos del certificado digital en `$FACTRONICA`.
+
+El archivo debe enviarse en el campo `archivotxt`.
+
+## 2. Crear la peticion HTTP
+
+La peticion debe ser:
+
+```http
+POST https://consumofolios.factronica.cl/
+Content-Type: multipart/form-data
+```
+
+Debe enviar estos campos:
+
+| Campo | Tipo | Requerido | Descripcion |
+| --- | --- | --- | --- |
+| `apikey` | texto | Si | Clave entregada por el proveedor de la API. |
+| `archivotxt` | archivo | Si | Archivo TXT/PHP con el consumo de folios. |
+
+## 3. Ejemplo de envio con curl
+
+```bash
+curl --form "archivotxt=@consumo.php" \
+  --form "apikey=abc123" \
+  https://consumofolios.factronica.cl/
+```
+
+Si el archivo tiene extension `.txt`, el comando seria:
+
+```bash
+curl --form "archivotxt=@consumo.txt" \
+  --form "apikey=abc123" \
+  https://consumofolios.factronica.cl/
+```
+
+## 4. Recibir la respuesta
+
+La API responde siempre en formato JSON.
+
+Ejemplo de respuesta exitosa:
+
+```json
+{
+  "acceso": 1,
+  "estado": 1,
+  "mensaje": "Consumo de Folios recibido por el SII Chile",
+  "semilla": "123456789",
+  "token": "TOKEN_SII",
+  "trackid": "1234567890"
+}
+```
+
+## 5. Analizar la respuesta JSON
+
+El integrador debe interpretar estos campos:
+
+| Campo | Descripcion |
+| --- | --- |
+| `acceso` | Indica si la API key fue aceptada. `1` aceptada, `0` rechazada. |
+| `estado` | Indica si el consumo fue recibido por el SII. `1` recibido, `0` no recibido o pendiente. |
+| `mensaje` | Texto descriptivo del resultado. |
+| `semilla` | Semilla obtenida desde el SII. |
+| `token` | Token obtenido desde el SII. |
+| `trackid` | Identificador entregado por el SII. Si es `0`, no hubo recepcion confirmada. |
+
+## 6. Validaciones recomendadas
+
+El cliente debe considerar el envio exitoso solo si:
+
+```text
+acceso = 1
+estado = 1
+trackid > 0
+```
+
+Si `acceso` es `0`, la API key fue rechazada.
+
+Si `estado` es `0`, el consumo no fue confirmado como recibido por el SII y se debe revisar el campo `mensaje`.
+
+## 7. Respuestas de error frecuentes
+
+### Falta API key
+
+```json
+{
+  "acceso": 0,
+  "estado": 0,
+  "mensaje": "ERROR: No viene apikey, acceso rechazado"
+}
+```
+
+### API key invalida
+
+```json
+{
+  "acceso": 0,
+  "estado": 0,
+  "mensaje": "ERROR: apikey no valida, acceso rechazado"
+}
+```
+
+### Falta archivo
+
+```json
+{
+  "acceso": 1,
+  "estado": 0,
+  "mensaje": "ERROR: No viene archivotxt"
+}
+```
+
+### SII no disponible o sin token
+
+```json
+{
+  "acceso": 1,
+  "estado": 0,
+  "mensaje": "ERROR: SII Ocupado volver a Intentar"
+}
+```
+
