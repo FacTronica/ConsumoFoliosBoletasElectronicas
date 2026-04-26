@@ -32,6 +32,9 @@ En el cuerpo de la petición se Deben enviar estos campos:
 | `apikey`     | texto   | Si        | Clave entregada por el proveedor de la API. |
 | `archivotxt` | archivo | Si        | Archivo TXT/PHP con el consumo de folios.   |
 
+Para obtener una apikey de acceso a la api, se debe registrar en la siguiente url:  
+https://apisii.factronica.cl/registro
+
 ### Ejemplo de envio con curl
 
 ```bash
