@@ -1,4 +1,4 @@
-# Guia de integracion cliente
+# Guia de integracion cliente consumo folios
 
 Este documento describe los pasos que debe seguir un integrador externo para enviar un consumo de folios a la API y procesar la respuesta.
 
