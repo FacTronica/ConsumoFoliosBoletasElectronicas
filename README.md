@@ -2,7 +2,7 @@
 
 Este documento describe los pasos que debe seguir un integrador externo para enviar un consumo de folios a la API y procesar la respuesta.
 
-## 1. Crear el archivo TXT
+## Paso 1. Crear el archivo TXT
 
 El integrador debe generar un archivo TXT con contenido PHP valido.
 
@@ -13,12 +13,13 @@ Este archivo debe contener:
 - Datos del certificado digital en `$FACTRONICA`.
 
 El archivo debe enviarse en el campo `archivotxt`.  
+  
 En la siguiente Url se encuentra el formato de ejemplo del archivo Txt  
 https://github.com/FacTronica/ConsumoFoliosBoletasElectronicas/blob/master/ConsumoFoliosEjemplo.txt
 
-## 2. Crear la peticion HTTP
+## Paso 2. Realizar la peticion HTTP
 
-La peticion debe ser:
+La peticion debe tener los siguiente atributos:
 
 ```http
 POST https://consumofolios.factronica.cl/
@@ -32,23 +33,19 @@ Debe enviar estos campos:
 | `apikey` | texto | Si | Clave entregada por el proveedor de la API. |
 | `archivotxt` | archivo | Si | Archivo TXT/PHP con el consumo de folios. |
 
-## 3. Ejemplo de envio con curl
+### Ejemplo de envio con curl
 
 ```bash
-curl --form "archivotxt=@consumo.php" \
-  --form "apikey=abc123" \
-  https://consumofolios.factronica.cl/
+curl --form "archivotxt=@consumo.php" --form "apikey=abc123" https://consumofolios.factronica.cl
 ```
 
 Si el archivo tiene extension `.txt`, el comando seria:
 
 ```bash
-curl --form "archivotxt=@consumo.txt" \
-  --form "apikey=abc123" \
-  https://consumofolios.factronica.cl/
+curl --form "archivotxt=@consumo.txt" --form "apikey=abc123" https://consumofolios.factronica.cl
 ```
 
-## 4. Recibir la respuesta
+## Paso 3. Recibir la respuesta
 
 La API responde siempre en formato JSON.
 
