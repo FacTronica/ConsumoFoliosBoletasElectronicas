@@ -2,7 +2,7 @@
 
 Este documento describe los pasos que debe seguir un integrador externo para enviar un consumo de folios a la API y procesar la respuesta.
 
-## 1. Preparar el archivo TXT
+## 1. Crear el archivo TXT
 
 El integrador debe generar un archivo TXT con contenido PHP valido.
 
@@ -12,7 +12,9 @@ Este archivo debe contener:
 - Resumen de folios por tipo de documento en `$Resumen`.
 - Datos del certificado digital en `$FACTRONICA`.
 
-El archivo debe enviarse en el campo `archivotxt`.
+El archivo debe enviarse en el campo `archivotxt`.  
+En la siguiente Url se encuentra el formato de ejemplo del archivo Txt  
+https://github.com/FacTronica/ConsumoFoliosBoletasElectronicas/blob/master/ConsumoFoliosEjemplo.txt
 
 ## 2. Crear la peticion HTTP
 
