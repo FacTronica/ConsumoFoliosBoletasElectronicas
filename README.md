@@ -12,26 +12,25 @@ Este archivo debe contener:
 - Resumen de folios por tipo de documento en `$Resumen`.
 - Datos del certificado digital en `$FACTRONICA`.
 
-El archivo debe enviarse en el campo `archivotxt`.  
-  
+El archivo debe enviarse en el campo `archivotxt`.
+
 En la siguiente Url se encuentra el formato de ejemplo del archivo Txt  
 https://github.com/FacTronica/ConsumoFoliosBoletasElectronicas/blob/master/ConsumoFoliosEjemplo.txt
 
 ## Paso 2. Realizar la peticion HTTP
 
-La peticion debe tener los siguiente atributos:
+La peticion http debe ser tipo POST Content-Type: multipart/form-data y se debe enviar a la siguiente url endpoint:
 
-```http
-POST https://consumofolios.factronica.cl/
-Content-Type: multipart/form-data
+```Url endpoint
+https://consumofolios.factronica.cl
 ```
 
-Debe enviar estos campos:
+En el cuerpo de la petición se Deben enviar estos campos:
 
-| Campo | Tipo | Requerido | Descripcion |
-| --- | --- | --- | --- |
-| `apikey` | texto | Si | Clave entregada por el proveedor de la API. |
-| `archivotxt` | archivo | Si | Archivo TXT/PHP con el consumo de folios. |
+| Campo        | Tipo    | Requerido | Descripcion                                 |
+| ------------ | ------- | --------- | ------------------------------------------- |
+| `apikey`     | texto   | Si        | Clave entregada por el proveedor de la API. |
+| `archivotxt` | archivo | Si        | Archivo TXT/PHP con el consumo de folios.   |
 
 ### Ejemplo de envio con curl
 
@@ -66,14 +65,14 @@ Ejemplo de respuesta exitosa:
 
 El integrador debe interpretar estos campos:
 
-| Campo | Descripcion |
-| --- | --- |
-| `acceso` | Indica si la API key fue aceptada. `1` aceptada, `0` rechazada. |
-| `estado` | Indica si el consumo fue recibido por el SII. `1` recibido, `0` no recibido o pendiente. |
-| `mensaje` | Texto descriptivo del resultado. |
-| `semilla` | Semilla obtenida desde el SII. |
-| `token` | Token obtenido desde el SII. |
-| `trackid` | Identificador entregado por el SII. Si es `0`, no hubo recepcion confirmada. |
+| Campo     | Descripcion                                                                              |
+| --------- | ---------------------------------------------------------------------------------------- |
+| `acceso`  | Indica si la API key fue aceptada. `1` aceptada, `0` rechazada.                          |
+| `estado`  | Indica si el consumo fue recibido por el SII. `1` recibido, `0` no recibido o pendiente. |
+| `mensaje` | Texto descriptivo del resultado.                                                         |
+| `semilla` | Semilla obtenida desde el SII.                                                           |
+| `token`   | Token obtenido desde el SII.                                                             |
+| `trackid` | Identificador entregado por el SII. Si es `0`, no hubo recepcion confirmada.             |
 
 ## Validaciones recomendadas
 
@@ -130,4 +129,3 @@ Si `estado` es `0`, el consumo no fue confirmado como recibido por el SII y se d
   "mensaje": "ERROR: SII Ocupado volver a Intentar"
 }
 ```
-
